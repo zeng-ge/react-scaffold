@@ -1,0 +1,14 @@
+.app{
+  &-body{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    & > aside{
+      width: 300px;
+    }
+    & > main{
+      flex: 1;
+    }
+  }
+}

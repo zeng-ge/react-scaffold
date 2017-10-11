@@ -1,0 +1,9 @@
+.menu{
+  li{
+    list-style: none;
+    cursor: pointer;
+  }
+  .active{
+    color: lightgreen;
+  }
+}
