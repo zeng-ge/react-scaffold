@@ -4,6 +4,9 @@ react脚手架工程
 ## 安装
 yarn install
 
+yarn start  启动
+yarn build  打包
+
 ## 按feature来组织目录
 - containers存入页面,它与redux打交通
 - components只显示数据
