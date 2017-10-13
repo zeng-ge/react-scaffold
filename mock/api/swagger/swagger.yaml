@@ -18,6 +18,7 @@ consumes:
 produces:
   - application/json
 
+#由于内容全部移到了routes与models的文件内部, definitions与responses用不上了
 #definitions:
 #  Calendar:
 #    $ref: "api/swagger/models/calendar.yaml"
