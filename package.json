@@ -9,6 +9,7 @@
     "clear": "rm -r build"
   },
   "dependencies": {
+    "axios": "^0.16.2",
     "babel-polyfill": "^6.26.0",
     "classnames": "^2.2.5",
     "history": "^4.7.2",
