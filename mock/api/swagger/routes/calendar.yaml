@@ -1,0 +1,11 @@
+x-swagger-router-controller: calendar #指定处理请求的controller
+get:
+  tags: #tags根据关键字进行分组
+    - Calendar
+  summary: get calendar
+  description: get calendar information
+  operationId: getCalendar #处理请求的方法名
+  responses:
+    "200":
+      # 在这里要用相对路径, api/swagger/models/calendar.yaml就找不到了
+      $ref: "../models/calendar.yaml"

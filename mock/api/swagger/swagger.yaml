@@ -1,0 +1,36 @@
+swagger: "2.0"
+info:
+  version: "0.0.1"
+  title: API
+# during dev, should point to your local machine
+host: localhost:10010
+# basePath prefixes all resource paths 
+basePath: /
+# 
+schemes:
+  # tip: remove http to make production-grade
+  - http
+  - https
+# format of bodies a client can send (Content-Type)
+consumes:
+  - application/json
+# format of the responses to the client (Accepts)
+produces:
+  - application/json
+
+#definitions:
+#  Calendar:
+#    $ref: "api/swagger/models/calendar.yaml"
+
+#responses:
+#  calendar:
+#    description: get calendar successful
+#    schema:
+#      $ref: "#/definitions/Calendar"
+
+paths:
+  /calendar:
+    $ref: "api/swagger/routes/calendar.yaml"
+  /swagger:
+    x-swagger-pipe: swagger_raw
+
