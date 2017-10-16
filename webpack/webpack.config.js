@@ -28,7 +28,8 @@ module.exports = {
     extensions: ['.js'],
     modules: ['node_modules'],
     alias: {
-      CONSTANT: path.resolve(__dirname, '../src/core/constant.js')
+      CONSTANT: path.resolve(__dirname, '../src/core/constant.js'),
+      HTTP: path.resolve(__dirname, '../src/http/index.js')
     }
   },
   module: {
@@ -84,13 +85,13 @@ module.exports = {
     lazy: false,//dev server仅仅在browser请求该文件时才会去编译
     open: false,//是否打开浏览器
     // openPage: '',//跳到指定页面,当打开浏览器时,
-    // proxy: {//设置代理
-    //   '/api/*': {
-    //     target: 'localhost: 9091',
-    //     pathRewrite: (url)=>{
-    //       return ''
-    //     }
-    //   }
-    // }
+    proxy: {//设置代理
+      '/api/*': {
+        target: 'http://localhost:10010',
+        pathRewrite: (url)=>{
+          return url.replace('/api', '');
+        }
+      }
+    }
   }
 };
