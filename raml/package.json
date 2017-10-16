@@ -1,0 +1,12 @@
+{
+  "name": "raml",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "osprey-mock-service -f api.raml -p 10010"
+  },
+  "dependencies": {
+    "osprey-mock-service": "^0.2.1"
+  }
+}

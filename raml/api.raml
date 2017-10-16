@@ -1,0 +1,32 @@
+#%RAML 1.0
+---
+title: react scaffold api mock
+mediaType:
+  - application/json
+  - application/xml
+
+types: !include types/index.raml
+#types:
+#  type1: !include types/calendar.raml
+
+resourceTypes:
+  200: !include resources/200.raml
+
+/calendar:
+  description: get calendar
+  type:
+    200:
+      type: Calendar
+      example: !include examples/calendar.json
+#/calenar:
+#  get:
+#    responses:
+#      200:
+#        body:
+#          application/json:
+#            type: Calendar
+#            example:
+#              calendar: 2017-10-23
+#            example: !include examples/calendar.json
+#            example: |
+#              {"calendar": "2017-10-21"}key与value必须用双引号,否则response为空
