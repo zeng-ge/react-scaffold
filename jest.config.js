@@ -10,7 +10,10 @@ module.exports = {
     '/node_modules/'
   ],
   moduleNameMapper: {
-    '\\.(png|jpg|gif|woff|woff2|css|sass|scss|less|styl|svg)$': '<rootDir>/test/testMock.js'
+    '\\.(png|jpg|gif|woff|woff2|css|sass|scss|less|styl|svg)$': '<rootDir>/test/testMock.js',
+    '^CONSTANT$': '<rootDir>src/core/constant.js',
+    '^HTTP$': '<rootDir>src/http/index.js',
+    '^helper$': '<rootDir>test/helper.js'
   },
   setupFiles: [
     '<rootDir>/test/setup.js',
