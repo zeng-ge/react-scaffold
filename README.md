@@ -5,12 +5,18 @@ react脚手架工程
 yarn install
 
 yarn start  启动
+
 yarn build  打包
+
+yarn test   单元测试
+
+yarn e2e    端到端测试
 
 cd swagger && yarn start      开启swagger mock
 
 由于swagger ui 3.x之前不支持在swagger.yaml里面通过$ref来引用文件
 因此无法通过swagger project edit来生成api文档
+
 
 ## 按feature来组织目录
 - containers存入页面,它与redux打交通
