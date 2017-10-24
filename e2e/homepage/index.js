@@ -36,6 +36,15 @@ describe('homepage',function(){
     const liArray = await page.$$('li');
     const listLi = liArray[1];
     listLi.click();
+
+    await timeout(1000);
+
+    const activeText = await page.evaluate(()=>{
+      const activeLi = document.querySelector('li.active');
+      return activeLi.innerHTML;
+    });
+    expect(activeText).to.equal('List');
+
     await timeout(10000)
   });
 
