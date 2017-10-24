@@ -32,7 +32,7 @@ export default class App extends Component{
     return (
       <div className="app">
         <header>
-          <h1>{APP_NAME}1</h1>
+          <h1>{APP_NAME}</h1>
         </header>
         <div className="app-body">
           <aside>
