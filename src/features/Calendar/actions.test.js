@@ -1,5 +1,6 @@
 import mockAxios from 'axios-mock-adapter';
 import http from 'HTTP';
+import { expect } from 'chai';
 import {ACTION_TYPES} from 'CONSTANT';
 import reduder,{ getCalendar } from './actions';
 import { getMockStore } from 'helper';
@@ -22,12 +23,24 @@ describe('calendar actions', () => {
 
     const store = mockStore({});
     store.dispatch(getCalendar()).then(()=>{
-      const actions = store.getActions();
+      const actions = store.getActions();//获取调用过的actions
       const action = actions[1];
-      expect(action.type).toEqual('SET_CALENDAR_FULFILLED');
-      expect(action.payload.data).toEqual({calendar: '2015-10-20'});
+      expect(action.type).to.equal('SET_CALENDAR_FULFILLED');
+      expect(action.payload.data).to.deep.equal({calendar: '2015-10-20'});
       done();
     })
+  });
+
+  test('action getCalendar should fetch calendar 401', (done) => {
+    mock.onGet('/api/calendar').reply(401)
+    const store = mockStore({});
+    store.dispatch(getCalendar()).then(()=>{
+    }, (error)=>{
+      const actions = store.getActions();//获取调用过的actions
+      const action = actions[1];
+      expect(action.type).to.equal('SET_CALENDAR_REJECTED');
+      done();
+    });
   });
 
   test('calendar reducer should update successfully', () => {
@@ -35,7 +48,6 @@ describe('calendar actions', () => {
       type: `${ACTION_TYPES.CALENDAR.SET_CALENDAR}_FULFILLED`,
       payload: {data: {calendar: '2015-10-20'}}
     })
-    expect(result.calendar.format('YYYY-MM-DD')).toEqual('2015-10-20');
+    expect(result.calendar.format('YYYY-MM-DD')).to.deep.equal('2015-10-20');
   });
-
 });
